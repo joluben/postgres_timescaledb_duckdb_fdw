@@ -3,12 +3,14 @@
 # ==========================================
 FROM postgres:17.10 AS builder
 
-# Instalar herramientas de compilación para PostgreSQL 17
+# Instalar herramientas de compilación y herramientas de descarga (curl, unzip)
 RUN apt-get update && apt-get install -y \
     build-essential \
     postgresql-server-dev-17 \
     git \
     wget \
+    curl \
+    unzip \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
